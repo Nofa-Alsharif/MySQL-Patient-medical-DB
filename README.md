@@ -86,3 +86,34 @@ SELECT d.DrFname, d.DrLname, COUNT(p.MedicineName) AS PrescriptionCount
 FROM Doctor d
 JOIN Prescribed p ON d.License_Number = p.License_Number
 GROUP BY d.License_Number;
+
+
+### 2. Get patients who have more than one allergy:
+
+This query lists all patients who have been recorded with more than one allergy by counting the allergies per patient and filtering those with count > 1.
+
+```sql
+SELECT PatientID, COUNT(AllergyName) AS AllergyCount
+FROM Allergy
+GROUP BY PatientID
+HAVING COUNT(AllergyName) > 1;
+
+Example Advanced Queries
+1. List doctors and the number of prescriptions they issued:
+sql
+نسخ
+تحرير
+SELECT d.DrFname, d.DrLname, COUNT(p.MedicineName) AS PrescriptionCount  
+FROM Doctor d  
+JOIN Prescribed p ON d.License_Number = p.License_Number  
+GROUP BY d.License_Number;
+2. Get patients who have more than one allergy:
+This query lists all patients who have been recorded with more than one allergy.
+
+sql
+نسخ
+تحرير
+SELECT PatientID, COUNT(AllergyName) AS AllergyCount  
+FROM Allergy  
+GROUP BY PatientID  
+HAVING COUNT(AllergyName) > 1;
