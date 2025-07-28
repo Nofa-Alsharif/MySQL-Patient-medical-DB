@@ -346,7 +346,6 @@ VALUES
   (725839765, 'Penicillin'),
   (726397654, 'Peanut');
 
----------------------------------------------------
 
 -- Update the available time for a specific doctor
 UPDATE pma.Doctor
@@ -362,7 +361,6 @@ UPDATE pma.Department
 SET Phone_no = 535911012
 WHERE Department_code = 'Surgical101';
 
----------------------------------------------------
 
 -- Delete diagnosis with DiagnosisNo = 2
 DELETE FROM Diagnose
@@ -372,21 +370,20 @@ WHERE DiagnosisNo = 2;
 DELETE FROM Diagnose
 WHERE DiagnosisNo = 5;
 
----------------------------------------------------
 
 -- Subquery: Get the oldest patient(s) based on age
 SELECT *
 FROM Patient
 WHERE Age = (SELECT MAX(Age) FROM Patient);
 
----------------------------------------------------
+
 
 -- Subquery: List the names of patients who are older than the average age
 SELECT PFirst_Name, Age
 FROM Patient
 WHERE Age > (SELECT AVG(Age) FROM Patient);
 
----------------------------------------------------
+
 
 -- Count how many patients are male or female
 SELECT Gender, COUNT(Gender) AS count
@@ -394,14 +391,13 @@ FROM Patient
 GROUP BY Gender
 HAVING COUNT(Gender) >= 1;
 
----------------------------------------------------
 
 -- List all prescription info with medicine names and patient IDs in descending order
 SELECT *
 FROM Medicine
 ORDER BY MedicineName DESC, PatientID DESC;
 
----------------------------------------------------
+
 
 -- View how many doctors are available in each department after 5 PM
 SELECT Department_code, COUNT(License_number) AS Available_Doctor
@@ -409,7 +405,7 @@ FROM Doctor
 WHERE Hour > 17
 GROUP BY Department_code;
 
----------------------------------------------------
+
 
 -- Get the number of patients older than 60 for each gender
 SELECT Gender, COUNT(age) AS count_Patients
@@ -417,7 +413,7 @@ FROM Patient
 WHERE age > 60
 GROUP BY Gender;
 
----------------------------------------------------
+
 
 -- List all patients' IDs that have a gluten allergy
 SELECT PatientID
