@@ -1,12 +1,12 @@
-# PMA - Patient Medical Archives Database
+# PMA - Patient Medical Archives Database 👩🏻‍⚕️📇
 
-## Project Overview
+## Project Overview 🔎
 
 The **PMA (Patient Medical Archives)** database is a centralized hospital management system designed to store and manage patient medical data, hospital departments, doctors, prescriptions, medical analyses, appointments, and related information. It enables hospitals to efficiently manage patient records and streamline healthcare operations.
 
 ---
 
-## Objectives
+## Objectives 📌💡
 
 - Enable hospitals to **register and access patient medical records** across the network.
 - Provide patients with the ability to **view hospitals and book appointments**.
@@ -16,7 +16,7 @@ The **PMA (Patient Medical Archives)** database is a centralized hospital manage
 
 ---
 
-## Database Setup
+## Database Setup🛠
 
 1. **Install a Database Server**  
    Use MySQL, MariaDB, or any compatible relational database server.  
@@ -27,7 +27,7 @@ The **PMA (Patient Medical Archives)** database is a centralized hospital manage
    ```sql
    CREATE DATABASE pma;
    USE pma;
-## Create Tables and Define Schema
+## Create Tables and Define Schema 🗃
 
 - Patient  
 - Doctor  
@@ -50,7 +50,7 @@ The **PMA (Patient Medical Archives)** database is a centralized hospital manage
 
 ---
 
-## Schema Design Highlights
+## Schema Design Highlights 💡
 
 - Relational design with **primary and foreign key constraints** to enforce data integrity.  
 - Central **Patient** table linked to prescriptions, allergies, diagnoses, and medical analyses.  
@@ -61,7 +61,7 @@ The **PMA (Patient Medical Archives)** database is a centralized hospital manage
 
 ---
 
-## Important Tables Overview
+## Important Tables Overview 🖇
 
 | Table Name          | Description                                         |
 |---------------------|-----------------------------------------------------|
@@ -77,7 +77,7 @@ The **PMA (Patient Medical Archives)** database is a centralized hospital manage
 
 ---
 
-## Example Advanced Queries
+## Example Advanced Queries 🌟
 
 ### 1. List doctors and the number of prescriptions they issued:
 
