@@ -86,34 +86,3 @@ SELECT d.DrFname, d.DrLname, COUNT(p.MedicineName) AS PrescriptionCount
 FROM Doctor d
 JOIN Prescribed p ON d.License_Number = p.License_Number
 GROUP BY d.License_Number;
-
-### 2. Get patients who have more than one allergy:
-
-This query lists all patients who have been recorded with more than one allergy by counting the allergies per patient and filtering those with count > 1.
-
-```sql
-SELECT PatientID, COUNT(AllergyName) AS AllergyCount
-FROM Allergy
-GROUP BY PatientID
-HAVING COUNT(AllergyName) > 1;
-
-### 3. Find appointments scheduled after 5 PM and the assigned doctors:
-
-This query retrieves all appointments where the assigned doctor's working hour is after 5 PM, including appointment details and doctor's name.
-
-```sql
-SELECT a.AppointmentNo, a.Date, a.Time, d.DrFname, d.DrLname
-FROM Appointment a
-JOIN Schedule s ON a.AppointmentNo = s.AppointmentNo
-JOIN Doctor d ON s.LicenseNo = d.License_Number
-WHERE d.Hour > 17;
-
-### 4. Get the oldest patient(s) and their prescription details
-
-This query fetches the patient(s) with the highest age along with their prescription details such as medicine name and prescription date.
-
-```sql
-SELECT p.ID, p.PFirst_Name, p.PLast_Name, pr.MedicineName, pr.Prescription_Date
-FROM Patient p
-JOIN Prescription pr ON p.ID = pr.PatientID
-WHERE p.Age = (SELECT MAX(Age) FROM Patient);
