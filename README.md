@@ -99,8 +99,6 @@ GROUP BY PatientID
 HAVING COUNT(AllergyName) > 1;
 ```
 
----
-
 ### 3. Find appointments scheduled after 5 PM and the assigned doctors:
 
 ```sql
@@ -111,8 +109,6 @@ JOIN Doctor d ON s.LicenseNo = d.License_Number
 WHERE d.Hour > 17;
 ```
 
----
-
 ### 4. Get the oldest patient(s) and their prescription details:
 
 ```sql
@@ -120,5 +116,4 @@ SELECT p.ID, p.PFirst_Name, p.PLast_Name, pr.MedicineName, pr.Prescription_Date
 FROM Patient p
 JOIN Prescription pr ON p.ID = pr.PatientID
 WHERE p.Age = (SELECT MAX(Age) FROM Patient);
-```
 ```
